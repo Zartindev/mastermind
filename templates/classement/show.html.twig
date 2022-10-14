@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Classement{% endblock %}
+
+{% block body %}
+    <h1>Classement</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ classement.id }}</td>
+            </tr>
+            <tr>
+                <th>NbWin</th>
+                <td>{{ classement.nbWin }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_classement_index') }}">back to list</a>
+
+    <a href="{{ path('app_classement_edit', {'id': classement.id}) }}">edit</a>
+
+    {{ include('classement/_delete_form.html.twig') }}
+{% endblock %}

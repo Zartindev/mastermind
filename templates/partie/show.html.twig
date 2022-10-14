@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Partie{% endblock %}
+
+{% block body %}
+    <h1>Partie</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ partie.id }}</td>
+            </tr>
+            <tr>
+                <th>Nbcoups</th>
+                <td>{{ partie.nbcoups }}</td>
+            </tr>
+            <tr>
+                <th>Temps</th>
+                <td>{{ partie.temps }}</td>
+            </tr>
+            <tr>
+                <th>Resultat</th>
+                <td>{{ partie.resultat ? 'Yes' : 'No' }}</td>
+            </tr>
+            <tr>
+                <th>Date</th>
+                <td>{{ partie.date ? partie.date|date('Y-m-d') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_partie_index') }}">back to list</a>
+
+    <a href="{{ path('app_partie_edit', {'id': partie.id}) }}">edit</a>
+
+    {{ include('partie/_delete_form.html.twig') }}
+{% endblock %}
