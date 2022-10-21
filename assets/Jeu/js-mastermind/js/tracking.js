@@ -1,5 +1,5 @@
-import {db, dbRef} from "./database.js"
-import {getDatabase, ref, set, onValue, get, child, update, remove, orderByKey} from "./database.js"
+//import {db, dbRef} from "./database.js"
+// import {getDatabase, ref, set, onValue, get, child, update, remove, orderByKey} from "./database.js"
 
  export class Tracking{
 
@@ -115,43 +115,43 @@ import {getDatabase, ref, set, onValue, get, child, update, remove, orderByKey} 
         return temp;
     }
 
-    writeLastGameId2Database(userId) {
-        set(ref(db, `game_data/${userId}/last_gameId`), this.gameId);
-    }
+    // writeLastGameId2Database(userId) {
+    //     set(ref(db, `game_data/${userId}/last_gameId`), this.gameId);
+    // }
 
-    writeLastUserId2Database(user_Id) {
-        set(ref(db, 'last_userId/'), user_Id);
-    }
+    // writeLastUserId2Database(user_Id) {
+    //     set(ref(db, 'last_userId/'), user_Id);
+    // }
 
-    writeUserId2Database(userId) {
-        set(ref(db, 'name_id_mapping/'+this.playerName), userId)
-            .catch(error => {console.log(error)});
-    }
+    // writeUserId2Database(userId) {
+    //     set(ref(db, 'name_id_mapping/'+this.playerName), userId)
+    //         .catch(error => {console.log(error)});
+    // }
 
 
     // Permet d'ecrire dans le db du jeu initial les stats de la game, il faudra le changer pour que ça ecrive sur la notre
-    write2Database() {
-        //console.log(`userId: ${this.userId} and gameId: ${this.gameId}`)
-        let no_rounds = null
-        if(this.rounds.length == null) {
-            no_rounds = 0;
-        } else {
-            no_rounds = this.rounds.length;
-        }
-        set(ref(db, `game_data/${this.userId}/${this.gameId}`), {
-            playerName: this.playerName,
-            gameId: this.gameId,
-            correctCode: this.correctCode,
-            won: this.won,
-            rounds: this.rounds,
-            turnTimes_ms: this.turnTimes,
-            hints: this.hints,
-            feedback: this.feedback
-        });
-        //Write last_gameId
-        //console.log(`I write the last_gameId: ${this.gameId} from user: ${this.userId} to DB`)
-        set(ref(db, `game_data/${this.userId}/last_gameId`), this.gameId);
-    }
+    // write2Database() {
+    //     //console.log(`userId: ${this.userId} and gameId: ${this.gameId}`)
+    //     let no_rounds = null
+    //     if(this.rounds.length == null) {
+    //         no_rounds = 0;
+    //     } else {
+    //         no_rounds = this.rounds.length;
+    //     }
+    //     set(ref(db, `game_data/${this.userId}/${this.gameId}`), {
+    //         playerName: this.playerName,
+    //         gameId: this.gameId,
+    //         correctCode: this.correctCode,
+    //         won: this.won,
+    //         rounds: this.rounds,
+    //         turnTimes_ms: this.turnTimes,
+    //         hints: this.hints,
+    //         feedback: this.feedback
+    //     });
+    //     //Write last_gameId
+    //     //console.log(`I write the last_gameId: ${this.gameId} from user: ${this.userId} to DB`)
+    //     set(ref(db, `game_data/${this.userId}/last_gameId`), this.gameId);
+    // }
 
 
     // Permet d'ecrire directement dans les logs du browser les stats de la game

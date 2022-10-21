@@ -50,9 +50,9 @@ import {analyzeInputRows, getArtihumanGuess, resetArtihuman, setArtihumanSlots} 
   startOverlay.className = 'show';
 
   async function readUserData() {
-    track.userId = await track.readUserId();
+    track.userId =1 // await track.readUserId();
     //console.log("userId in main.js: "+track.userId);
-    track.gameId = await track.readLastGameId(track.userId);
+    track.gameId = 1 // await track.readLastGameId(track.userId);
 
     //new increase new gameId by 1
     track.gameId++;
@@ -361,7 +361,7 @@ import {analyzeInputRows, getArtihumanGuess, resetArtihuman, setArtihumanSlots} 
 
   function gameState(state) {
     track.write2File();
-    track.write2Database();
+   // track.write2Database();
     //track.downloadFile();
     gameOver();
     document.getElementsByTagName('body')[0].className = state;
