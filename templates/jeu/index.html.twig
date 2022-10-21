@@ -1,0 +1,235 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello JeuController!{% endblock %}
+
+{% block body %}
+  
+  <!--[if lt IE 7]>
+  <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+  <![endif]-->
+ 
+  <!-- Add your site or application content here -->
+
+  <div class="wrapper">
+    <header>
+      <a href="http://127.0.0.1:8000/register"><button>Register here</button></a>  <!--on a changer ici-->
+      <a href="http://127.0.0.1:8000/login"><button>Sign IN</button></a>  <!--on a changer ici-->
+      <img src="js-mastermind/img/robomind_logo.svg" style="width:50px;height:50px;">
+      <h1>RoboMind</h1>
+      <div id="restart">
+        <button id="newGame" class="blue">Restart</button>
+      </div>
+    </header>
+
+    <div class="game-container">
+      <div id="guesses">
+        <div class="code row">
+          <div class="secret socket">?</div>
+          <div class="secret socket">?</div>
+          <div class="secret socket">?</div>
+          <div class="secret socket">?</div>
+        </div>
+        <div class="guess">
+          <div class="socket"></div>
+          <div class="socket"></div>
+          <div class="socket"></div>
+          <div class="socket"></div>
+        </div>
+        <div class="guess">
+          <div class="socket"></div>
+          <div class="socket"></div>
+          <div class="socket"></div>
+          <div class="socket"></div>
+        </div>
+        <div class="guess">
+          <div class="socket"></div>
+          <div class="socket"></div>
+          <div class="socket"></div>
+          <div class="socket"></div>
+        </div>
+        <div class="guess">
+          <div class="socket"></div>
+          <div class="socket"></div>
+          <div class="socket"></div>
+          <div class="socket"></div>
+        </div>
+        <div class="guess">
+          <div class="socket"></div>
+          <div class="socket"></div>
+          <div class="socket"></div>
+          <div class="socket"></div>
+        </div>
+        <div class="guess">
+          <div class="socket"></div>
+          <div class="socket"></div>
+          <div class="socket"></div>
+          <div class="socket"></div>
+        </div>
+        <div class="guess">
+          <div class="socket"></div>
+          <div class="socket"></div>
+          <div class="socket"></div>
+          <div class="socket"></div>
+        </div>
+        <div class="guess">
+          <div class="socket"></div>
+          <div class="socket"></div>
+          <div class="socket"></div>
+          <div class="socket"></div>
+        </div>
+      </div>
+
+      <div id="hints">
+        <div class="hint">
+          <div class="row">
+            <div class="js-hint-socket socket"></div>
+            <div class="js-hint-socket socket"></div>
+          </div>
+          <div class="row">
+            <div class="js-hint-socket socket"></div>
+            <div class="js-hint-socket socket"></div>
+          </div>
+        </div>
+        <div class="hint">
+          <div class="row">
+            <div class="js-hint-socket socket"></div>
+            <div class="js-hint-socket socket"></div>
+          </div>
+          <div class="row">
+            <div class="js-hint-socket socket"></div>
+            <div class="js-hint-socket socket"></div>
+          </div>
+        </div>
+        <div class="hint">
+          <div class="row">
+            <div class="js-hint-socket socket"></div>
+            <div class="js-hint-socket socket"></div>
+          </div>
+          <div class="row">
+            <div class="js-hint-socket socket"></div>
+            <div class="js-hint-socket socket"></div>
+          </div>
+        </div>
+        <div class="hint">
+          <div class="row">
+            <div class="js-hint-socket socket"></div>
+            <div class="js-hint-socket socket"></div>
+          </div>
+          <div class="row">
+            <div class="js-hint-socket socket"></div>
+            <div class="js-hint-socket socket"></div>
+          </div>
+        </div>
+        <div class="hint">
+          <div class="row">
+            <div class="js-hint-socket socket"></div>
+            <div class="js-hint-socket socket"></div>
+          </div>
+          <div class="row">
+            <div class="js-hint-socket socket"></div>
+            <div class="js-hint-socket socket"></div>
+          </div>
+        </div>
+        <div class="hint">
+          <div class="row">
+            <div class="js-hint-socket socket"></div>
+            <div class="js-hint-socket socket"></div>
+          </div>
+          <div class="row">
+            <div class="js-hint-socket socket"></div>
+            <div class="js-hint-socket socket"></div>
+          </div>
+        </div>
+        <div class="hint">
+          <div class="row">
+            <div class="js-hint-socket socket"></div>
+            <div class="js-hint-socket socket"></div>
+          </div>
+          <div class="row">
+            <div class="js-hint-socket socket"></div>
+            <div class="js-hint-socket socket"></div>
+          </div>
+        </div>
+        <div class="hint">
+          <div class="row">
+            <div class="js-hint-socket socket"></div>
+            <div class="js-hint-socket socket"></div>
+          </div>
+          <div class="row">
+            <div class="js-hint-socket socket"></div>
+            <div class="js-hint-socket socket"></div>
+          </div>
+        </div>
+      </div>
+      <div id="options">
+        <div class="container">
+          <button value="1" id="green" class="option green"></button>
+          <button value="2" id="purple" class="option purple"></button>
+          <button value="3" id="red" class="option red"></button>
+          <button disabled id="submit" class="">Submit</button>
+          <p></p>
+          <button value="4" id="yellow" class="option yellow"></button>
+          <button value="5" id="blue" class="option blue"></button>
+          <button value="6" id="brown" class="option brown"></button>
+          <button id="delete" class="">&#8634;</button>
+          <button id="artihuman" class="">&#x1F916;</button>
+        </div>
+
+      </div>
+
+      <div id="textinput">
+        <div class="container">
+          <form>
+            <label for="inputfield">Your thoughts?</label>
+            <textarea id="inputfield" rows="5" placeholder="Why did you choose this combination of pins? ... at least 10 letters :)"></textarea>
+            <button id="submitFeedback" class="">Submit Feedback</button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="info">
+      <button id="info" class="">&#9432; How to Play</button>
+    </div>
+
+    <div id="infoOverlay">
+      <div id="instructions">
+        <h3>How to play</h3>
+        <p><strong>Goal:</strong> Guess the pattern, in both order and color</p>
+        <p>Insert your guess sequence into the empty sockets</p>
+        <p>Hints are provided on the right side in the form of black and white pegs.
+        <ul>
+        <li><strong>Black peg</strong> corresponds to one peg from your color sequence that is both the right color and in the right
+            position</li><br>
+          <li><strong>White peg</strong> corresponds to one peg from your color sequence that is the right color but NOT in the right
+            position</li>
+        </ul>
+        </p>
+        <p>Please in <strong>every round</strong> enter <strong>Feedback</strong> in the textbox below after you chose your color combination.</p>
+        <button id="close-info">Close</button>
+      </div>
+    </div>
+
+  </div>
+
+  <div id="startOverlay">
+    <div id="enterName">
+      <img src="js-mastermind/img/robomind_logo.svg" style="width:50px;height:50px;">
+      <h2>Welcome, fellow Codecracker</h2>
+      <p><strong>I need your help</strong></p>
+      <p>Before you can help me to crack some codes, I need to know your name :)</p>
+      <input type ="text" id="nameInput" rows="1" placeholder="Your Roboname123.."></input>
+      <button id="submitName">Enter</button>
+      <p>(choose something individual - 3 letters minimum)</p>
+    </div>
+  </div>
+
+
+  <div id="modalOverlay">
+    <div id="modalMessage">
+
+      <button class="large">OK-</button>
+      <button class="large primary">Restart</button>
+    </div>
+  </div>
+
+{% endblock %}

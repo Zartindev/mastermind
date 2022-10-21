@@ -128,6 +128,8 @@ import {getDatabase, ref, set, onValue, get, child, update, remove, orderByKey} 
             .catch(error => {console.log(error)});
     }
 
+
+    // Permet d'ecrire dans le db du jeu initial les stats de la game, il faudra le changer pour que ça ecrive sur la notre
     write2Database() {
         //console.log(`userId: ${this.userId} and gameId: ${this.gameId}`)
         let no_rounds = null
@@ -151,6 +153,8 @@ import {getDatabase, ref, set, onValue, get, child, update, remove, orderByKey} 
         set(ref(db, `game_data/${this.userId}/last_gameId`), this.gameId);
     }
 
+
+    // Permet d'ecrire directement dans les logs du browser les stats de la game
     write2File() {
         this.gameData = {
             gameId: this.gameId,

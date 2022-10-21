@@ -1,9 +1,9 @@
 // Import the functions you need from the SDKs you need
-import {initializeApp} from "https://www.gstatic.com/firebasejs/9.6.6/firebase-app.js";
+// import {initializeApp} from "https://www.gstatic.com/firebasejs/9.6.6/firebase-app.js";
 
 // https://firebase.google.com/docs/web/setup#available-libraries
-import {getDatabase, ref, set, onValue, get, child, update, remove, orderByKey} from "https://www.gstatic.com/firebasejs/9.6.6/firebase-database.js"
-export {getDatabase, ref, set, onValue, get, child, update, remove, orderByKey} from "https://www.gstatic.com/firebasejs/9.6.6/firebase-database.js"
+// import {getDatabase, ref, set, onValue, get, child, update, remove, orderByKey} from "https://www.gstatic.com/firebasejs/9.6.6/firebase-database.js"
+// export {getDatabase, ref, set, onValue, get, child, update, remove, orderByKey} from "https://www.gstatic.com/firebasejs/9.6.6/firebase-database.js"
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
