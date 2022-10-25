@@ -12,7 +12,7 @@
 
   <div class="wrapper">
     <header>
-      <img src="js-mastermind/img/robomind_logo.svg" style="width:50px;height:50px;">
+      <img src="{{ asset('img/robomind_logo.svg') }}" style="width:50px;height:50px;">
 
       <h1>RoboMind</h1>
       <div id="restart">
@@ -176,15 +176,6 @@
 
       </div>
 
-      <div id="textinput">
-        <div class="container">
-          <form>
-            <label for="inputfield">Your thoughts?</label>
-            <textarea id="inputfield" rows="5" placeholder="Why did you choose this combination of pins? ... at least 10 letters :)"></textarea>
-            <button id="submitFeedback" class="">Submit Feedback</button>
-          </form>
-        </div>
-      </div>
     </div>
     <div class="info">
       <button id="info" class="">&#9432; How to Play</button>
@@ -212,7 +203,7 @@
 
   <div id="startOverlay">
     <div id="enterName">
-      <img src="js-mastermind/img/robomind_logo.svg" style="width:50px;height:50px;">
+      <img src="{{ asset('img/robomind_logo.svg')}}" style="width:50px;height:50px;">
       <h2>Welcome, fellow Codecracker</h2>
       <p><strong>I need your help</strong></p>
       <p>Before you can help me to crack some codes, I need to know your name :)</p>

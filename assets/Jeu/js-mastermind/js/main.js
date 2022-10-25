@@ -32,7 +32,6 @@ import {analyzeInputRows, getArtihumanGuess, resetArtihuman, setArtihumanSlots} 
     artihuman_button = document.getElementById('artihuman'),
 
 
-
     rowIncrement = 1,
     hintIncrement = 1;
     export const pegs = {
@@ -77,14 +76,8 @@ import {analyzeInputRows, getArtihumanGuess, resetArtihuman, setArtihumanSlots} 
     document.getElementById('delete').onclick = deleteLast;
     document.getElementById('submit').onclick = submitGuess;
     document.getElementById('submitName').onclick = submitName;
-    document.getElementById('submit').disabled = true;
-    document.getElementById('submitFeedback').onclick = submitFeedback;
-    document.getElementById('submitFeedback').disabled = true;
-//   document.getElementById('inputfield').disabled = true;
     document.getElementById('info').onclick = showInfo;
     document.getElementById('close-info').onclick = hideInfo;
-
-
 
     artihuman_button.onclick = askArtihuman;
 
@@ -99,12 +92,8 @@ import {analyzeInputRows, getArtihumanGuess, resetArtihuman, setArtihumanSlots} 
     //console.log("Artihuman guess:", guess)
     setArtihumanSlots(guess);
 
-
-
-
     document.getElementById("submit").disabled = false;
-    document.getElementById('inputfield').value = 'I asked ArtiHuman to make a move';
-  artihuman_button.disabled = true;
+    artihuman_button.disabled = true;
   }
 
   function showInfo() {
@@ -132,10 +121,9 @@ import {analyzeInputRows, getArtihumanGuess, resetArtihuman, setArtihumanSlots} 
     }
 
     if (guess.length == 4) {
-      document.getElementsByTagName('textarea')[0].className = 'ignored';
-      document.getElementById("submit").disabled = false;
+     document.getElementById("submit").disabled = false;
     }
-
+  
   }
 
   function compare() {
@@ -186,25 +174,13 @@ import {analyzeInputRows, getArtihumanGuess, resetArtihuman, setArtihumanSlots} 
       var slots = inputRows[inputRows.length - rowIncrement].getElementsByClassName('socket');
       slots[guess.length - 1].className = 'socket'; // Insert node into page
       guess.pop();
-      document.getElementById("submit").disabled = true;
-      document.getElementById('inputfield').className = '';
     }
-  }
-
-  function submitFeedback(ev) {
-    ev.preventDefault();
-    //console.log(document.getElementById('inputfield').value);
-    track.addFeedback(rowIncrement, document.getElementById('inputfield').value);
-    document.getElementById('inputfield').value('');
   }
 
   function submitGuess(ev) {
 
-    let feedbackTemp = document.getElementById('inputfield').value.slice(0);
-
     if (guess.length === 4) {
 
-      if (feedbackTemp.length >= 10) {
         hideRestart();
 
         document.getElementById("submit").disabled = true;
@@ -220,11 +196,7 @@ import {analyzeInputRows, getArtihumanGuess, resetArtihuman, setArtihumanSlots} 
 
         ev.preventDefault();
 
-        track.addFeedback(rowIncrement, feedbackTemp);
-
-        document.getElementById('inputfield').value = '';
-        document.getElementById('inputfield').className = '';
-        document.getElementById('inputfield').style.borderColor = '';
+        track.addFeedback(rowIncrement);
 
         if (compare()) {
           track.won = true;
@@ -235,12 +207,7 @@ import {analyzeInputRows, getArtihumanGuess, resetArtihuman, setArtihumanSlots} 
           track.won = false;
           gameState('lost');
         }
-      } else {
-        let myArray = ['Red','Yellow','Pink', 'Cyan'];
-        document.getElementById('inputfield').style.borderColor = myArray[(Math.random() * myArray.length) | 0]
-
-      }
-
+    
       artihuman_button.disabled = false;
 
     }
@@ -361,7 +328,6 @@ import {analyzeInputRows, getArtihumanGuess, resetArtihuman, setArtihumanSlots} 
 
   function gameState(state) {
     track.write2File();
-   // track.write2Database();
     //track.downloadFile();
     gameOver();
     document.getElementsByTagName('body')[0].className = state;
@@ -396,8 +362,6 @@ import {analyzeInputRows, getArtihumanGuess, resetArtihuman, setArtihumanSlots} 
   gameSetup(); // Run the game
 
   export {getGuess, getInputRows, getHintStorage, getRowIncrement};
-
-
 
 
 

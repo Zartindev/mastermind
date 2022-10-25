@@ -1,7 +1,7 @@
 //import {db, dbRef} from "./database.js"
 // import {getDatabase, ref, set, onValue, get, child, update, remove, orderByKey} from "./database.js"
 
- export class Tracking{
+export class Tracking{
 
 
     constructor() {
@@ -38,9 +38,9 @@
         //console.log(`Hint Added. Current hints:${JSON.stringify(this.hints)}`);
     }
 
-    addFeedback(noRound, feedback) {
+    addFeedback(noRound) {
         if (!(noRound in this.feedback)) {
-            this.feedback[noRound] = feedback;
+            this.feedback[noRound] = "round " + noRound;
         }
         //console.log(`Feedback Added. Current Feedback:${JSON.stringify(this.feedback)}`);
     }
@@ -129,31 +129,6 @@
     // }
 
 
-    // Permet d'ecrire dans le db du jeu initial les stats de la game, il faudra le changer pour que ça ecrive sur la notre
-    // write2Database() {
-    //     //console.log(`userId: ${this.userId} and gameId: ${this.gameId}`)
-    //     let no_rounds = null
-    //     if(this.rounds.length == null) {
-    //         no_rounds = 0;
-    //     } else {
-    //         no_rounds = this.rounds.length;
-    //     }
-    //     set(ref(db, `game_data/${this.userId}/${this.gameId}`), {
-    //         playerName: this.playerName,
-    //         gameId: this.gameId,
-    //         correctCode: this.correctCode,
-    //         won: this.won,
-    //         rounds: this.rounds,
-    //         turnTimes_ms: this.turnTimes,
-    //         hints: this.hints,
-    //         feedback: this.feedback
-    //     });
-    //     //Write last_gameId
-    //     //console.log(`I write the last_gameId: ${this.gameId} from user: ${this.userId} to DB`)
-    //     set(ref(db, `game_data/${this.userId}/last_gameId`), this.gameId);
-    // }
-
-
     // Permet d'ecrire directement dans les logs du browser les stats de la game
     write2File() {
         this.gameData = {
@@ -166,6 +141,9 @@
             hints: this.hints,
             feedback: this.feedback
         };
+        /*
+            TODO - Utiliser JSON.stringify(this.gameData) pour récupérer l'ensemble des stats
+        */
         localStorage.setItem('GameData', JSON.stringify(this.gameData));
     }
 
