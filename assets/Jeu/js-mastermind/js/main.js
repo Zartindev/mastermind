@@ -247,7 +247,7 @@ import {analyzeInputRows, getArtihumanGuess, resetArtihuman, setArtihumanSlots} 
       hideStartOverlay();
       readUserData();
     }
-    let artiHumanPlayersList = ['Steve', 'OliverBot']
+    let artiHumanPlayersList = ['Steve', 'OliverBot', 'Choupi']
 
     if(!artiHumanPlayersList.includes(track.playerName)) {
       artihuman_button.style.visibility="hidden";
