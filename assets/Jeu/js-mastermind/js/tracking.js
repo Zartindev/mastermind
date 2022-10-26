@@ -12,7 +12,6 @@ export class Tracking{
         this.rounds = {}
         this.hints = {}
         this.turnTimes = {}
-        this.feedback = {}
         this.userId = 0;
         this.correctCode = [];
     }
@@ -139,12 +138,12 @@ export class Tracking{
             rounds: this.rounds,
             turnTimes_ms: this.turnTimes,
             hints: this.hints,
-            feedback: this.feedback
         };
         /*
             TODO - Utiliser JSON.stringify(this.gameData) pour récupérer l'ensemble des stats
         */
         localStorage.setItem('GameData', JSON.stringify(this.gameData));
+        
     }
 
     downloadFile() {

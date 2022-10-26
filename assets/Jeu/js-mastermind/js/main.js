@@ -174,6 +174,7 @@ import {analyzeInputRows, getArtihumanGuess, resetArtihuman, setArtihumanSlots} 
       var slots = inputRows[inputRows.length - rowIncrement].getElementsByClassName('socket');
       slots[guess.length - 1].className = 'socket'; // Insert node into page
       guess.pop();
+      document.getElementById("submit").disabled = true;
     }
   }
 
@@ -181,7 +182,7 @@ import {analyzeInputRows, getArtihumanGuess, resetArtihuman, setArtihumanSlots} 
 
     if (guess.length === 4) {
 
-        hideRestart();
+        //hideRestart();
 
         document.getElementById("submit").disabled = true;
         let guessTemp = guess.slice();
@@ -196,7 +197,8 @@ import {analyzeInputRows, getArtihumanGuess, resetArtihuman, setArtihumanSlots} 
 
         ev.preventDefault();
 
-        track.addFeedback(rowIncrement);
+        //track.addFeedback(rowIncrement);
+        // truc qui bloquait le submitguess 
 
         if (compare()) {
           track.won = true;
