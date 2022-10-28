@@ -1,6 +1,7 @@
 //https://medium.com/jeremy-gottfrieds-tech-blog/javascript-tutorial-record-audio-and-encode-it-to-mp3-2eedcd466e78
 import {Tracking as Tracker} from "./tracking.js"
 import {analyzeInputRows, getArtihumanGuess, resetArtihuman, setArtihumanSlots} from "./artihuman.js"
+import axios from "axios"; 
 
 
   'use strict';

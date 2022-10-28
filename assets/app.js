@@ -16,7 +16,6 @@ import './Jeu/js-mastermind/css/main.css'
 
 import './Jeu/js-mastermind/js/main.js'
 
-import axios from "axios"; 
 
 import Routing from 'fos-router';
 const routes = require('./js/routes.json');

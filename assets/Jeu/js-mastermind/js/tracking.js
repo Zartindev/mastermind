@@ -1,6 +1,10 @@
 //import {db, dbRef} from "./database.js"
 // import {getDatabase, ref, set, onValue, get, child, update, remove, orderByKey} from "./database.js"
-
+import axios from "axios"; 
+import Routing from 'fos-router';
+const routes = require('../../../js/routes.json');
+Routing.setRoutingData(routes);
+console.log('app_partie_new');
 export class Tracking{
 
 
@@ -139,6 +143,8 @@ export class Tracking{
             turnTimes_ms: this.turnTimes,
             //hints: this.hints,
         };
+
+        axios.post(Routing.generate('app_partie_new'), JSON.stringify(this.gameData))
         /*
             TODO - Utiliser JSON.stringify(this.gameData) pour récupérer l'ensemble des stats
         */
