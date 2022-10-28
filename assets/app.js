@@ -6,8 +6,21 @@
  */
 
 // any CSS you import will output into a single css file (app.css in this case)
+
+//console.log("coucou"); 
+
 import './styles/app.css';
 import './Jeu/js-mastermind/css/normalize.css'
 import './Jeu/js-mastermind/css/main.css'
 
+
 import './Jeu/js-mastermind/js/main.js'
+
+import axios from "axios"; 
+
+import Routing from 'fos-router';
+const routes = require('./js/routes.json');
+Routing.setRoutingData(routes);
+console.log('app_partie_new'); 
+
+

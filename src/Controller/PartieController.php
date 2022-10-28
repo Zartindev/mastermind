@@ -21,7 +21,7 @@ class PartieController extends AbstractController
         ]);
     }
 
-    #[Route('/new', name: 'app_partie_new', methods: ['GET', 'POST'])]
+    #[Route('/new', name: 'app_partie_new', methods: ['GET', 'POST'], options: ['expose' => true] )]
     public function new(Request $request, PartieRepository $partieRepository): Response
     {
         $partie = new Partie();

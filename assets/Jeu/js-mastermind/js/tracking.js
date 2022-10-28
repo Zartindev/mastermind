@@ -131,13 +131,13 @@ export class Tracking{
     // Permet d'ecrire directement dans les logs du browser les stats de la game
     write2File() {
         this.gameData = {
-            gameId: this.gameId,
-            playerName: this.playerName,
-            correctCode: this.correctCode,
+            //gameId: this.gameId,
+            //playerName: this.playerName,
+            //correctCode: this.correctCode,
             won: this.won,
             rounds: this.rounds,
             turnTimes_ms: this.turnTimes,
-            hints: this.hints,
+            //hints: this.hints,
         };
         /*
             TODO - Utiliser JSON.stringify(this.gameData) pour récupérer l'ensemble des stats
