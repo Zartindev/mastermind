@@ -30,19 +30,23 @@ class PartieController extends AbstractController
 
         $joueur = $this->getUser();
         dump($joueur);
-        // new \DateTime();  
+        // new \DateTime();
         $partie->setFkIdJoueur($joueur);
         $partie->setNbcoups(count(get_object_vars($decodedPartie->rounds)));
         // On prend les variables de l'objet rounds pour pouvoir les additionner et savoir le nombres de coups que la personne a fait
         $partie->setResultat($decodedPartie->won);
         $partie->setDate(new \DateTime());
-        //$partie->setTemps($decodedPartie->turnTimes_ms[1]);
+        //$partie->setTemps($decodedPartie->turnTimes_ms);
         // Il faut faire en sorte qu'on puisse additionner tous les temps de tours pour avoir le tempss total en ms ou enseconde
         dd($partie);
         return $this->renderForm('partie/new.html.twig', [
             'partie' => $partie,
         ]);
     }
+
+
+
+    
 
     #[Route('/{id}', name: 'app_partie_show', methods: ['GET'])]
     public function show(Partie $partie): Response

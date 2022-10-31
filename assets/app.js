@@ -15,7 +15,7 @@ import './Jeu/js-mastermind/css/main.css'
 
 
 import './Jeu/js-mastermind/js/main.js'
-
+import './scripts.js'
 
 import Routing from 'fos-router';
 const routes = require('./js/routes.json');
