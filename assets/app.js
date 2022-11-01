@@ -20,6 +20,6 @@ import './scripts.js'
 import Routing from 'fos-router';
 const routes = require('./js/routes.json');
 Routing.setRoutingData(routes);
-console.log('app_partie_new'); 
+console.log(Routing.generate('app_partie_new')); 
 
 

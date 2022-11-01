@@ -13,8 +13,9 @@ class LoginController extends AbstractController
     public function login(AuthenticationUtils $authenticationUtils): Response
     {
         // if ($this->getUser()) {
-        //     return $this->redirectToRoute('target_path');
+          //   return $this->redirectToRoute('app_home'); 
         // }
+        // Si on active ça, ça veut dire que si on est connecté et qu'on veut aller sur login ça nous renvoie direct sur la page home
 
         // get the login error if there is one
         $error = $authenticationUtils->getLastAuthenticationError();
@@ -28,5 +29,6 @@ class LoginController extends AbstractController
     public function logout(): void
     {
         throw new \LogicException('This method can be blank - it will be intercepted by the logout key on your firewall.');
+        
     }
 }
