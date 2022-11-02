@@ -21,22 +21,18 @@ class ClassementController extends AbstractController
         ]);
     }
 
-    #[Route('/new', name: 'app_classement_new', methods: ['GET', 'POST'])]
+    #[Route('/new', name: 'app_classement_new', methods: ['GET', 'POST'], options: ['expose' => true] )]
     public function new(Request $request, ClassementRepository $classementRepository): Response
     {
         $classement = new Classement();
-        $form = $this->createForm(ClassementType::class, $classement);
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            $classementRepository->save($classement, true);
-
-            return $this->redirectToRoute('app_classement_index', [], Response::HTTP_SEE_OTHER);
-        }
+      
+        $joueur = $this->getUser();
+        $classement->setFkIdJoueur($joueur);
+        $classement->setNbWin($classement->getNbWin+1);
+        $classementRepository->save($classement, true);
 
         return $this->renderForm('classement/new.html.twig', [
             'classement' => $classement,
-            'form' => $form,
         ]);
     }
 
