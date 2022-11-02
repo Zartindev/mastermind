@@ -21,5 +21,5 @@ import Routing from 'fos-router';
 const routes = require('./js/routes.json');
 Routing.setRoutingData(routes);
 console.log(Routing.generate('app_partie_new'), Routing.generate('app_classement_new')); 
-
+// L'erreur lors du lancement de la partie vient de l'app.js et ne va pas au niveau d'après ( tracking.js) donc je ne peux pas tester si mon calssement controller fonctionne bien
 

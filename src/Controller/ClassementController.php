@@ -25,11 +25,19 @@ class ClassementController extends AbstractController
     public function new(Request $request, ClassementRepository $classementRepository): Response
     {
         $classement = new Classement();
+
+        $decodedPartie = json_decode($request->getContent());
+
+        if($decodedPartie->won=true){
+            $joueur = $this->getUser();
+            $classement->setFkIdJoueur($joueur);
+            $classement->setNbWin($classement->getNbWin+1);
+            $classementRepository->save($classement, true);
+
+            dd($classement);
+        }
       
-        $joueur = $this->getUser();
-        $classement->setFkIdJoueur($joueur);
-        $classement->setNbWin($classement->getNbWin+1);
-        $classementRepository->save($classement, true);
+        
 
         return $this->renderForm('classement/new.html.twig', [
             'classement' => $classement,

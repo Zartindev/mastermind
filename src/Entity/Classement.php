@@ -18,7 +18,7 @@ class Classement
     private ?Joueur $fk_idJoueur = null;
 
     #[ORM\Column]
-    private ?int $nbWin = null;
+    private ?int $nbWin = 0; // On met le nombre de win de base à 0
 
     public function getId(): ?int
     {
