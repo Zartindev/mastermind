@@ -59,10 +59,6 @@ class PartieController extends AbstractController
             ),
         ]);
     }
-
-
-
-
     
 
     #[Route('/{id}', name: 'app_partie_show', methods: ['GET'])]

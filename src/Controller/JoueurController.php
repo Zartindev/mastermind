@@ -21,6 +21,17 @@ class JoueurController extends AbstractController
         ]);
     }
 
+    #[Route('/profilJoueur', name: 'app_joueur_profilJoueur', methods: ['GET'])]
+    public function profilJoueur(JoueurRepository $joueurRepository): Response
+    {
+       
+        return $this->render('joueur/profilJoueur.html.twig', [
+            'joueurs' => $joueurRepository->findBy(
+                ['id' => $this->getUser()]
+            ),
+        ]);
+    }
+
     #[Route('/new', name: 'app_joueur_new', methods: ['GET', 'POST'])]
     public function new(Request $request, JoueurRepository $joueurRepository): Response
     {

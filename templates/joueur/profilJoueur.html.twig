@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Profil{% endblock %}
+
+{% block body %}
+    <h1>Voici votre profil</h1>
+
+    <table class="table">
+        <thead>
+            
+        </thead>
+        <tbody>
+        {% for joueur in joueurs %}
+            <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ joueur.id }}</td>
+            </tr>
+            <tr>
+                <th>Username</th>
+                <td>{{ joueur.username }}</td>
+            </tr>
+            <tr>
+                <th>Roles</th>
+                <td>{{ joueur.roles ? joueur.roles|json_encode : '' }}</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>{{ joueur.email }}</td>
+            </tr>
+            <tr>
+                <th>ImgProfil</th>
+                <td>{{ joueur.imgProfil }}</td>
+            </tr>
+            <tr>
+                <th>ImgBanniere</th>
+                <td>{{ joueur.imgBanniere }}</td>
+            </tr>
+        </tbody>
+        {% else %}
+            <tr>
+                <td colspan="8">Vous n'etes pas connecté</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}
