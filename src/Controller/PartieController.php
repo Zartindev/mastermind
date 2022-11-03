@@ -21,6 +21,8 @@ class PartieController extends AbstractController
         ]);
     }
 
+
+
     #[Route('/new', name: 'app_partie_new', methods: ['GET', 'POST'], options: ['expose' => true] )]
     public function new(Request $request, PartieRepository $partieRepository): Response
     {
@@ -47,6 +49,18 @@ class PartieController extends AbstractController
         ]);
     }
 
+    #[Route('/historique', name: 'app_partie_historique', methods: ['GET'])]
+    public function historique(PartieRepository $partieRepository): Response
+    {
+        
+        return $this->render('partie/historique.html.twig', [
+            'parties' => $partieRepository->findBy(
+                ['fk_idJoueur'=> $this->getUser()]
+            ),
+        ]);
+    }
+
+
 
 
     
@@ -58,6 +72,9 @@ class PartieController extends AbstractController
             'partie' => $partie,
         ]);
     }
+
+   
+
 
     #[Route('/{id}/edit', name: 'app_partie_edit', methods: ['GET', 'POST'])]
     public function edit(Request $request, Partie $partie, PartieRepository $partieRepository): Response
