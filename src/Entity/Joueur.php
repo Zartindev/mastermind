@@ -21,7 +21,7 @@ class Joueur implements UserInterface, PasswordAuthenticatedUserInterface
     private ?string $username = null;
 
     #[ORM\Column]
-    private array $roles = [];
+    private array $roles = [1];
 
     /**
      * @var string The hashed password
@@ -73,9 +73,15 @@ class Joueur implements UserInterface, PasswordAuthenticatedUserInterface
      */
     public function getRoles(): array
     {
-        $roles = $this->roles;
+        if(($this->roles) == [1]){
+            $roles[] = 'ROLE_USER';
+        }
+        if(($this->roles) == [2]){
+            $roles[] = 'ROLE_ADMIN';
+        }
+        //$roles = $this->roles;
         // guarantee every user at least has ROLE_USER
-        $roles[] = 'ROLE_USER';
+        //$roles[] = 'ROLE_USER';
 
         return array_unique($roles);
     }

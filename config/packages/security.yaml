@@ -31,8 +31,20 @@ security:
     # Easy way to control access for large sections of your site
     # Note: Only the *first* access control that matches will be used
     access_control:
-        # - { path: ^/admin, roles: ROLE_ADMIN }
-        # - { path: ^/profile, roles: ROLE_USER }
+        - { path: ^/home, roles: PUBLIC_ACCESS }    #donne acces à tout le monde meme non login
+        - { path: ^/login, roles: PUBLIC_ACCESS }
+        - { path: ^/register, roles: PUBLIC_ACCESS }
+        - { path: ^/profile, roles: ROLE_USER }
+        - { path: ^/jeu, roles: ROLE_USER }
+        - { path: ^/classement, roles: ROLE_USER }
+        - { path: ^/joueur/profilJoueur, roles: ROLE_USER }
+        - { path: ^/joueur, roles: ROLE_ADMIN }
+        - { path: ^/partie, roles: ROLE_USER }
+        - { path: ^/admin, roles: ROLE_ADMIN }
+
+
+    role_hierarchy:
+        ROLE_ADMIN: ROLE_USER   #ROLE_ADMIN herite des droits du ROLE_USER
 
 when@test:
     security:
