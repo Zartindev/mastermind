@@ -34,9 +34,10 @@
             </label>
         </div>
     #}
-
-    <button class="btn btn-lg btn-primary" type="submit">
-        Sign in
-    </button>
+    <ul>
+        <button class="btn btn-lg btn-primary" type="submit">Se connecter</button>
+        <a class="btn btn-lg btn-primary" href="{{ path('app_register') }}">Créer un compte</a>
+    </ul>
+    
 </form>
 {% endblock %}
