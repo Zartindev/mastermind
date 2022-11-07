@@ -1,9 +1,1 @@
-{"base_url":""
-,"routes":
-{"app_partie_new":{"tokens":[["text","\/partie\/new"]],"defaults":[],"requirements":[],"hosttokens":[],"methods":["GET","POST"],"schemes":[]}}
-
-,"prefix":""
-,"host":"localhost"
-,"port":""
-,"scheme":"http"
-,"locale":""}
+{"base_url":"","routes":{"app_classement_new":{"tokens":[["text","\/classement\/new"]],"defaults":[],"requirements":[],"hosttokens":[],"methods":["GET","POST"],"schemes":[]},"app_partie_new":{"tokens":[["text","\/partie\/new"]],"defaults":[],"requirements":[],"hosttokens":[],"methods":["GET","POST"],"schemes":[]}},"prefix":"","host":"localhost","port":"","scheme":"http","locale":""}
