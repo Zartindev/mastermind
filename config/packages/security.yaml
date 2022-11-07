@@ -41,7 +41,7 @@ security:
         - { path: ^/joueur/profilJoueur, roles: ROLE_USER }
         - { path: ^/joueur, roles: ROLE_ADMIN }
         - { path: ^/partie/historique, roles: ROLE_USER }
-        - { path: ^/partie, roles: ROLE_ADMIN }
+        - { path: ^/partie, roles: ROLE_USER }
         - { path: ^/admin, roles: ROLE_ADMIN }
 
 
