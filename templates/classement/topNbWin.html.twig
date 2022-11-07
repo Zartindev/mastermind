@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Classement index{% endblock %}
+
+{% block body %}
+    <h1>Classement des joueurs avec le plus de Wins</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Username</th>
+                <th>NbWin</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for classement in classements %}
+            <tr>
+                <td>{{ classement.getFkIdJoueur().getUsername() }}</td>
+                <td>{{ classement.nbWin }}</td>
+                
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">Pas de classement Disponible</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}
