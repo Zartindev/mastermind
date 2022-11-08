@@ -33,6 +33,7 @@ security:
     # Note: Only the *first* access control that matches will be used
     access_control:
         - { path: ^/home, roles: PUBLIC_ACCESS }    #donne acces à tout le monde meme non login
+        - { path: ^/classement, roles: PUBLIC_ACCESS }
         - { path: ^/login, roles: PUBLIC_ACCESS }
         - { path: ^/register, roles: PUBLIC_ACCESS }
         - { path: ^/profile, roles: ROLE_USER }

@@ -3,7 +3,7 @@
 {% block title %}Log in!{% endblock %}
 
 {% block body %}
-<form method="post">
+    <form method="post">
     {% if error %}
         <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
     {% endif %}
@@ -14,10 +14,10 @@
         </div>
     {% endif %}
 
-    <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
-    <label for="inputUsername">Username</label>
+    <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1><br>
+    <label class="form-color" for="inputUsername">Username</label>
     <input type="text" value="{{ last_username }}" name="username" id="inputUsername" class="form-control" autocomplete="username" required autofocus>
-    <label for="inputPassword">Password</label>
+    <label class="form-color" for="inputPassword">Password</label>
     <input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required>
 
     <input type="hidden" name="_csrf_token"
@@ -35,8 +35,8 @@
         </div>
     #}
     <ul>
-        <button class="btn btn-lg btn-primary" type="submit">Se connecter</button>
-        <a class="btn btn-lg btn-primary" href="{{ path('app_register') }}">Créer un compte</a>
+        <button class="btn" type="submit">Se connecter</button>
+        <a class="btn" href="{{ path('app_register') }}">Créer un compte</a>
     </ul>
     
 </form>
