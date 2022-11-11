@@ -16,7 +16,7 @@ class PartieType extends AbstractType
             ->add('temps')
             ->add('resultat')
             ->add('date')
-            ->add('fk_idJoueur')
+            //->add('fk_idJoueur')
         ;
     }
 

@@ -4,6 +4,8 @@ namespace App\Entity;
 
 use App\Repository\JoueurRepository;
 use Doctrine\ORM\Mapping as ORM;
+use phpDocumentor\Reflection\Types\Boolean;
+use PhpParser\Node\Expr\Cast\Bool_;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
@@ -40,6 +42,8 @@ class Joueur implements UserInterface, PasswordAuthenticatedUserInterface
 
     #[ORM\OneToOne(mappedBy: 'fk_idJoueur', cascade: ['persist', 'remove'])]
     private ?Classement $classement = null;
+
+    private $isActive = true;
 
     public function getId(): ?int
     {
@@ -158,6 +162,16 @@ class Joueur implements UserInterface, PasswordAuthenticatedUserInterface
 
         $this->classement = $classement;
 
+        return $this;
+    }
+
+    public function getIsActive(): ?bool
+    {
+        return $this->isActive;
+    }
+    public function setIsActive(bool $isActive): self
+    {
+        $this->isActive = $isActive;
         return $this;
     }
 }

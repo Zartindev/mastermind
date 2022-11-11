@@ -22,7 +22,7 @@ security:
                 target: app_home   #quand on logout cela ramene vers la page home
                 # where to redirect after logout
                 # target: app_any_route
-
+            user_checker: App\Security\UserChecker
             # activate different ways to authenticate
             # https://symfony.com/doc/current/security.html#the-firewall
 
@@ -40,10 +40,10 @@ security:
         - { path: ^/jeu, roles: ROLE_USER }
         - { path: ^/classement, roles: ROLE_USER }
         - { path: ^/joueur/profilJoueur, roles: ROLE_USER }
-        - { path: ^/joueur, roles: ROLE_ADMIN }
+        - { path: ^/joueur, roles: ROLE_USER }
         - { path: ^/partie/historique, roles: ROLE_USER }
         - { path: ^/partie, roles: ROLE_USER }
-        - { path: ^/admin, roles: ROLE_ADMIN }
+        - { path: ^/admin, roles: ROLE_USER }
 
 
     role_hierarchy:

@@ -43,7 +43,6 @@ class RegistrationFormType extends AbstractType
                     ]),
                 ],
             ])
-            ->add('role')
         ;
     }
 

@@ -5,6 +5,7 @@ namespace App\Controller\Admin;
 use App\Entity\Classement;
 use App\Entity\Joueur;
 use App\Entity\Partie;
+use App\Entity\Contact;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractDashboardController;
@@ -51,5 +52,6 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToCrud('Joueurs', 'fa-solid fa-user', Joueur::class);
         yield MenuItem::linkToCrud('Parties', 'fa-solid fa-game-board', Partie::class);
         yield MenuItem::linkToCrud('Classement','fa-solid fa-trophy', Classement::class);
+        yield MenuItem::linkToCrud('Contact','fa-solid fa-contact', Contact::class);
     }
 }

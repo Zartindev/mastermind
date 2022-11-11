@@ -4,7 +4,7 @@
 
 {% block body %}
     <h1 class="mb-3">Register</h1>
-
+<div class="form-color"
     {{ form_start(registrationForm) }}
         {{ form_row(registrationForm.username) }}
         {{ form_row(registrationForm.plainPassword, {
@@ -17,4 +17,5 @@
         </ul>
         
     {{ form_end(registrationForm) }}
+</div>
 {% endblock %}

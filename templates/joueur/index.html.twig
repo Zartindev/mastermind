@@ -28,6 +28,7 @@
                 <td>{{ joueur.email }}</td>
                 <td>{{ joueur.imgProfil }}</td>
                 <td>{{ joueur.imgBanniere }}</td>
+                {#<td>{{ joueur.isActive }}</td>#}
                 <td>
                     <a href="{{ path('app_joueur_show', {'id': joueur.id}) }}">show</a>
                     <a href="{{ path('app_joueur_edit', {'id': joueur.id}) }}">edit</a>
