@@ -3,10 +3,9 @@
 {% block title %}Historique{% endblock %}
 
 {% block body %}
-    <h1>Historique</h1>
+    <h1 class="mb-3">Historique</h1>
 
-        <a href="{{ path('app_home') }}">HOME</a>
-        <a href="{{ path('app_login') }}">Login</a>
+
 
 
 
@@ -15,7 +14,6 @@
             <tr>
                 <th>Id</th>
                 <th>Nbcoups</th>
-                <th>Temps</th>
                 <th>Resultat</th>
                 <th>Date</th>
                 {#<th>actions</th>#}
@@ -26,8 +24,7 @@
             <tr>
                 <td>{{ partie.id }}</td>
                 <td>{{ partie.nbcoups }}</td>
-                <td>{{ partie.temps }}</td>
-                <td>{{ partie.resultat ? 'Yes' : 'No' }}</td>
+                <td>{{ partie.resultat ? 'Gagné' : 'Perdu' }}</td>
                 <td>{{ partie.date ? partie.date|date('Y-m-d') : '' }}</td>
               
             </tr>

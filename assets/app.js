@@ -9,8 +9,9 @@
 
 //console.log("coucou"); 
 
-import './styles/app.css';
 import './Jeu/js-mastermind/css/normalize.css'
+
+import './styles/app.css';
 import './Jeu/js-mastermind/css/main.css'
 
 

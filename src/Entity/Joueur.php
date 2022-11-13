@@ -3,7 +3,10 @@
 namespace App\Entity;
 
 use App\Repository\JoueurRepository;
+use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use phpDocumentor\Reflection\Types\Boolean;
+use PhpParser\Node\Expr\Cast\Bool_;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
@@ -21,7 +24,7 @@ class Joueur implements UserInterface, PasswordAuthenticatedUserInterface
     private ?string $username = null;
 
     #[ORM\Column]
-    private array $roles = [1];
+    private array $roles = ['ROLE_USER'];
 
     /**
      * @var string The hashed password
@@ -40,6 +43,9 @@ class Joueur implements UserInterface, PasswordAuthenticatedUserInterface
 
     #[ORM\OneToOne(mappedBy: 'fk_idJoueur', cascade: ['persist', 'remove'])]
     private ?Classement $classement = null;
+
+    #[ORM\Column(type: Types::BOOLEAN)]
+    private $isActive = true;
 
     public function getId(): ?int
     {
@@ -73,16 +79,7 @@ class Joueur implements UserInterface, PasswordAuthenticatedUserInterface
      */
     public function getRoles(): array
     {
-        if(($this->roles) == [1]){
-            $roles[] = 'ROLE_USER';
-        }
-        if(($this->roles) == [2]){
-            $roles[] = 'ROLE_ADMIN';
-        }
-        //$roles = $this->roles;
-        // guarantee every user at least has ROLE_USER
-        //$roles[] = 'ROLE_USER';
-
+        $roles = $this->roles;
         return array_unique($roles);
     }
 
@@ -167,6 +164,16 @@ class Joueur implements UserInterface, PasswordAuthenticatedUserInterface
 
         $this->classement = $classement;
 
+        return $this;
+    }
+
+    public function getIsActive(): ?bool
+    {
+        return $this->isActive;
+    }
+    public function setIsActive(bool $isActive): self
+    {
+        $this->isActive = $isActive;
         return $this;
     }
 }

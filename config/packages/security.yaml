@@ -20,9 +20,7 @@ security:
             logout:
                 path: app_logout
                 target: app_home   #quand on logout cela ramene vers la page home
-                # where to redirect after logout
-                # target: app_any_route
-
+            user_checker: App\Security\UserChecker
             # activate different ways to authenticate
             # https://symfony.com/doc/current/security.html#the-firewall
 
@@ -32,21 +30,33 @@ security:
     # Easy way to control access for large sections of your site
     # Note: Only the *first* access control that matches will be used
     access_control:
-        - { path: ^/home, roles: PUBLIC_ACCESS }    #donne acces à tout le monde meme non login
         - { path: ^/login, roles: PUBLIC_ACCESS }
+        - { path: ^/logout, roles: PUBLIC_ACCESS }
         - { path: ^/register, roles: PUBLIC_ACCESS }
-        - { path: ^/profile, roles: ROLE_USER }
-        - { path: ^/jeu, roles: ROLE_USER }
-        - { path: ^/classement, roles: ROLE_USER }
-        - { path: ^/joueur/profilJoueur, roles: ROLE_USER }
-        - { path: ^/joueur, roles: ROLE_ADMIN }
+        - { path: ^/contact, roles: PUBLIC_ACCESS }
+        - { path: ^/home, roles: PUBLIC_ACCESS } #donne acces à tout le monde meme non login
+        
+        - { path: ^/classement/classementTopNbWin, roles: PUBLIC_ACCESS }
+        - { path: ^/classement/new, roles: ROLE_USER }
+        - { path: ^/classement, roles: ROLE_ADMIN }
+
+        - { path: ^/jeu, roles: ROLE_USER }    
+        
+        - { path: ^/joueur/profil, roles: ROLE_USER }
+        - { path: ^/joueur/index, roles: ROLE_ADMIN }
+        - { path: ^/joueur/new, roles: ROLE_ADMIN }
+
         - { path: ^/partie/historique, roles: ROLE_USER }
-        - { path: ^/partie, roles: ROLE_USER }
-        - { path: ^/admin, roles: ROLE_ADMIN }
+
+        - { path: ^/partie/new, roles: ROLE_USER }
+        - { path: ^/partie, roles: ROLE_ADMIN }
+
+        - { path: ^/admin, roles: ROLE_ADMIN}
 
 
     role_hierarchy:
         ROLE_ADMIN: ROLE_USER   #ROLE_ADMIN herite des droits du ROLE_USER
+        ROLE_SUPERADMIN: ROLE_ADMIN
 
 when@test:
     security:

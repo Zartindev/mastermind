@@ -3,7 +3,7 @@
 {% block title %}Profil{% endblock %}
 
 {% block body %}
-    <h1>Voici votre profil</h1>
+    <h1 class="mb-3">Voici votre profil</h1>
 
     <table class="table">
         <thead>
@@ -12,10 +12,10 @@
         <tbody>
         {% for joueur in joueurs %}
             <tbody>
-            <tr>
+            {#<tr>
                 <th>Id</th>
                 <td>{{ joueur.id }}</td>
-            </tr>
+            </tr>#}
             <tr>
                 <th>Username</th>
                 <td>{{ joueur.username }}</td>
@@ -23,6 +23,7 @@
             {#<tr>
                 <th>Roles</th>
                 <td>{{ joueur.roles ? joueur.roles|json_encode : '' }}</td>
+                "{{ path('app_joueur_edit', {'id': joueur.id})}}"
             </tr>#}
             <tr>
                 <th>Email</th>
@@ -30,11 +31,18 @@
             </tr>
             <tr>
                 <th>ImgProfil</th>
-                <td>{{ joueur.imgProfil }}</td>
+                {% if joueur.imgProfil %}
+                <th><img src="/img/{{ joueur.imgProfil}}" width= 200px></th>
+                {% endif %}
             </tr>
             <tr>
                 <th>ImgBanniere</th>
-                <td>{{ joueur.imgBanniere }}</td>
+                {% if joueur.imgBanniere %}
+                <th><img src="/img/{{joueur.imgBanniere}}" width= 200px></th>
+                {% endif %}
+            </tr>
+            <tr>
+               <th><a class="btn" href="{{ path('app_joueur_edit', {'id': joueur.id})}}" >Modifier son profil</a></th>
             </tr>
         </tbody>
         {% else %}
