@@ -31,11 +31,15 @@
             </tr>
             <tr>
                 <th>ImgProfil</th>
+                {% if joueur.imgProfil %}
                 <th><img src="/img/{{ joueur.imgProfil}}" width= 200px></th>
+                {% endif %}
             </tr>
             <tr>
                 <th>ImgBanniere</th>
+                {% if joueur.imgBanniere %}
                 <th><img src="/img/{{joueur.imgBanniere}}" width= 200px></th>
+                {% endif %}
             </tr>
             <tr>
                <th><a class="btn" href="{{ path('app_joueur_edit', {'id': joueur.id})}}" >Modifier son profil</a></th>

@@ -8,19 +8,19 @@ use Symfony\Component\Security\Core\User\UserInterface;
 
 class UserChecker implements UserCheckerInterface
 {
-    public function checkPreAuth(UserInterface $user)
+    public function checkPreAuth(UserInterface $joueur)
     {
-        if (!$user instanceof Joueur) {
+        if (!$joueur instanceof Joueur) {
             return;
         }
-        if (!$user->getIsActive()) {
+        if (!$joueur->getIsActive()) {
             throw new CustomUserMessageAuthenticationException(
-                'Inactive account cannot log in!'
+                'Un compte inactif ne peut pas se connecter'
             );
         }
     }
-    public function checkPostAuth(UserInterface $user)
+    public function checkPostAuth(UserInterface $joueur)
     {
-        $this->checkPreAuth($user);
+        $this->checkPreAuth($joueur);
     }
 }

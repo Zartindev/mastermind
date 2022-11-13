@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use App\Repository\JoueurRepository;
+use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use phpDocumentor\Reflection\Types\Boolean;
 use PhpParser\Node\Expr\Cast\Bool_;
@@ -43,6 +44,7 @@ class Joueur implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\OneToOne(mappedBy: 'fk_idJoueur', cascade: ['persist', 'remove'])]
     private ?Classement $classement = null;
 
+    #[ORM\Column(type: Types::BOOLEAN)]
     private $isActive = true;
 
     public function getId(): ?int

@@ -339,11 +339,11 @@ import axios from "axios";
 
     if (state === 'won') {
       modalMessage.innerHTML = '<h1 style="color:white;">You cracked the code!</h1> <p style="color:white;">Great! You are awesome! Try another round...</p> <button class="large" id="hideModal">OK</button> <button id="restartGame" class="large primary">Restart</button>';
-      document.getElementById('restartGame').onclick = redirectToRoute('app_jeu');
+      document.getElementById('restartGame').onclick = newGame/*redirectToRoute('app_jeu')*/;
       document.getElementById('hideModal').onclick = hideModal;
     } else
       modalMessage.innerHTML = '<h1 style="color:white;">You failed...</h1> <p style="color:white;">What a shame... Look on the bright side - you weren\'t even close.</p> <button class="large" id="hideModal">OK</button> <button id="restartGame" class="large primary">Restart</button>';
-    document.getElementById('restartGame').onclick = redirectToRoute('app_jeu');
+    document.getElementById('restartGame').onclick = newGame/*redirectToRoute('app_jeu')*/;
     document.getElementById('hideModal').onclick = hideModal;
   }
 

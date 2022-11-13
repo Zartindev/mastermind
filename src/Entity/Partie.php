@@ -21,7 +21,7 @@ class Partie
     #[ORM\Column]
     private ?int $nbcoups = null;
 
-    #[ORM\Column]
+    #[ORM\Column(nullable:true)]
     private ?int $temps = null;
 
     #[ORM\Column]
