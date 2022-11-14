@@ -5,10 +5,10 @@
 
 {% block body %}
         {% for joueur in joueurs %}
-
-  <li><img src="/img/{{ joueur.imgProfil}}" width= 100px></th>
-
-          {% endfor %}
+          {% if joueur.imgProfil %}
+          <li><img src="/img/{{ joueur.imgProfil}}" width= 100px></th>
+          {% endif %}
+        {% endfor %}
 
   <!--[if lt IE 7]>
   <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
@@ -20,9 +20,9 @@
     <header>
       <img src="{{ asset('img/robomind_logo.svg') }}" style="width:50px;height:50px;">
 
-      <h1>RoboMind</h1>
+      <h1>MasterMind</h1>
       <div id="restart">
-        <button id="newGame" class="blue">Restart</button>
+        <button id="newGame" class="blue">Recommencer</button>
       </div>
     </header>
 
@@ -171,7 +171,7 @@
           <button value="1" id="green" class="option green"></button>
           <button value="2" id="purple" class="option purple"></button>
           <button value="3" id="red" class="option red"></button>
-          <button disabled id="submit" class="">Submit</button>
+          <button disabled id="submit" class="">Entrer</button>
           <p></p>
           <button value="4" id="yellow" class="option yellow"></button>
           <button value="5" id="blue" class="option blue"></button>
@@ -184,7 +184,7 @@
 
     </div>
     <div class="info">
-      <button id="info" class="">&#9432; How to Play</button>
+      <button id="info" class="">&#9432;</button>
     </div>
 
     <div id="infoOverlay">
@@ -210,12 +210,11 @@
   <div id="startOverlay">
     <div id="enterName">
       <img src="{{ asset('img/robomind_logo.svg')}}" style="width:50px;height:50px;">
-      <h2>Welcome, fellow Codecracker</h2>
-      <p><strong>I need your help</strong></p>
-      <p>Before you can help me to crack some codes, I need to know your name :)</p>
+      <h2>Bienvenue humain</h2>
+      <p>Avant de jouer, entre ton nom :)</p>
       <input type ="text" id="nameInput" rows="1" placeholder="Your Roboname123.."></input>
-      <button id="submitName">Enter</button>
-      <p>(choose something individual - 3 letters minimum)</p>
+      <button id="submitName">Entrer</button>
+      <p>(Met "Aide" comme nom pour un peu d'aide lors de la partie)</p>
     </div>
   </div>
 
@@ -224,7 +223,7 @@
     <div id="modalMessage">
 
       <button class="large">OK-</button>
-      <button class="large primary">Restart</button>
+      <button class="large primary">Recommencer</button>
     </div>
   </div>
 

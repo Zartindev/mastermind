@@ -249,7 +249,7 @@ import axios from "axios";
       hideStartOverlay();
       readUserData();
     }
-    let artiHumanPlayersList = ['Steve', 'OliverBot', 'Choupi']
+    let artiHumanPlayersList = ['Steve', 'OliverBot', 'Choupi', 'Aide']
 
     if(!artiHumanPlayersList.includes(track.playerName)) {
       artihuman_button.style.visibility="hidden";
@@ -338,11 +338,11 @@ import axios from "axios";
     modalOverlay.className = state;
 
     if (state === 'won') {
-      modalMessage.innerHTML = '<h1 style="color:white;">You cracked the code!</h1> <p style="color:white;">Great! You are awesome! Try another round...</p> <button class="large" id="hideModal">OK</button> <button id="restartGame" class="large primary">Restart</button>';
+      modalMessage.innerHTML = '<h1 style="color:white;">Bien joué!</h1> <p style="color:white;">Tu as battu le robot, prêt pour une autre partie ?</p> <button class="large" id="hideModal">OK</button> <button id="restartGame" class="large primary">Rejouer</button>';
       document.getElementById('restartGame').onclick = newGame/*redirectToRoute('app_jeu')*/;
       document.getElementById('hideModal').onclick = hideModal;
     } else
-      modalMessage.innerHTML = '<h1 style="color:white;">You failed...</h1> <p style="color:white;">What a shame... Look on the bright side - you weren\'t even close.</p> <button class="large" id="hideModal">OK</button> <button id="restartGame" class="large primary">Restart</button>';
+      modalMessage.innerHTML = '<h1 style="color:white;">Perdu</h1> <p style="color:white;">Pas grave tu seras meilleur la prochaine fois.</p> <button class="large" id="hideModal">OK</button> <button id="restartGame" class="large primary">Rejouer</button>';
     document.getElementById('restartGame').onclick = newGame/*redirectToRoute('app_jeu')*/;
     document.getElementById('hideModal').onclick = hideModal;
   }

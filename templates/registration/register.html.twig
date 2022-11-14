@@ -5,11 +5,11 @@
 {% block body %}
     <h1 class="mb-3">Register</h1>
     {{ form_start(registrationForm) }}
-        {{ form_row(registrationForm.username) }}
+        {{ form_row(registrationForm.username, {label:'Pseudo', class:'mb-3'}) }}
         {{ form_row(registrationForm.plainPassword, {
-            label: 'Password'
+            label: 'Mot de passe'
         }) }}
-        {{ form_row(registrationForm.agreeTerms) }}
+        {{ form_row(registrationForm.agreeTerms,{ label:'accepter les termes'},) }}
         <ul>
             <button type="submit" class="btn">Créer un compte</button>
             <a class="btn" href="{{ path('app_login') }}">Se connecter</a>
