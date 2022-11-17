@@ -5,6 +5,7 @@
 {% block body %}
     <h1 class="mb-3">Register</h1>
     {{ form_start(registrationForm) }}
+    <div class='mb-3'>
         {{ form_row(registrationForm.username, {label:'Pseudo', class:'mb-3'}) }}
         {{ form_row(registrationForm.plainPassword, {
             label: 'Mot de passe'
@@ -14,6 +15,6 @@
             <button type="submit" class="btn">Créer un compte</button>
             <a class="btn" href="{{ path('app_login') }}">Se connecter</a>
         </ul>
-        
+        </div>
     {{ form_end(registrationForm) }}
 {% endblock %}
